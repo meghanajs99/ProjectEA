@@ -1,0 +1,223 @@
+<html>
+<head>
+    <title>
+        Energy Analysis
+    </title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                       
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+
+  <link href="css/Icomoon/style.css" rel="stylesheet" type="text/css" />
+  <link href="css/main.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
+     <link rel="stylesheet" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:500,900,100,300,700,400' rel='stylesheet' type='text/css'>
+    
+    
+    
+    
+    </head>
+    <body>
+      <div class="container-fluid">
+        <div class="header-fluid"><span>Energy Analysis</span>
+        <span id="logoutbtn">
+            <a href="Signin.php"><button type="button" class="btn btn-outline-dark">Logout</button></a></span></div>
+        
+        
+       <nav class="fill">
+                <ul>
+                  <li><a href="index.php">My Bills</a></li>
+                  <li><a href="analysis.html">Save a New Bill</a></li>
+                  <li><a href="Aboutus.html">About Us</a></li>
+                </ul>
+              </nav>
+        </div>		
+        
+        
+<div class="container-fluid" style="width:90%">
+ <form name="myform" method="POST" action="php/data.php" >
+<center>
+<table cellspacing='10' cellpadding='15'>
+
+<tr>
+<td id="lab">State</td>
+<td><select class="custom-select"name='State' id='State' onchange="populate(this.id,'DIsName')" required>
+<option value='0'>--Select--</option>
+<option value='Andhra Pradesh'>AndhraPradesh</option>
+<option value='Assam'>Assam</option>
+<option value='Bihar'>Bihar</option>
+<option value='Chattisgarh'>Chattisgarh</option>
+<option value='Delhi'>Delhi</option>
+<option value='Gujarat'>Gujarat</option>
+<option value='Goa'>Goa</option>
+<option value='Himachal Pradesh'>HimachalPradesh</option>
+<option value='Haryana'>Haryana</option>
+<option value='Jammu and Kashmir'>Jammu and Kashmir</option>
+<option value='Karnataka'>Karnataka</option>
+<option value='Kerala'>Kerala</option>
+<option value='Madhya Pradesh'>MadhyaPradesh</option>
+<option value='Maharashtra'>Maharashtra</option>
+<option value='Meghalaya'>Meghalaya</option>
+<option value='Mizoram'>Mizoram</option>
+<option value='Orissa'>Orissa</option>
+<option value='Punjab'>Punjab</option>
+<option value='Rajasthan'>Rajasthan</option>
+<option value='Tripura'>Tripura</option>
+<option value='Uttar Pradesh'>UttarPradesh</option>
+    <option value='Uttarakhand'>Uttarakhand</option></select></td>
+</tr>
+<tr>
+<td id="lab">Discom</td>
+<td><select class="custom-select" name='DIsName' id='DIsName' required>
+<option value='0'>--Select--</option>
+</tr>
+<tr>
+
+<td id="lab">Supply Voltage Level</td>
+<td>
+<select class="custom-select" value='VoltageLevel' name="VoltageLevel"id='VoltageLevel' required>
+<option value='0'>--Select--</option>
+<option value='11'>11kV</option>
+<option value='22'>22kV</option>
+<option value='33'>33kV</option>
+<option value='>=132'>>=132kv</option>
+<option value='<110'>&lt 110kv</option>
+<option value='>=110'>>=110kv</option>
+<option value='500'>500</option>
+<option value='>500'>>500</option>
+<option value='>1000'>>1000</option>
+<option value='<33'>&lt 33</option>
+<option value='ALL'>ALL</option>
+<option value='>20and<100'>>20and&lt 100</option>
+<option value='>300'>>300</option>
+<option value='220'>220</option>
+<option value='400'>400</option>
+<option value='upto 25kVA'>upto 25kVa</option>
+<option value='>25kVA'>>25kVA</option>
+<option value='upto 500'>upto 500</option>
+<option value='upto 2500'>upto 2500kv</option>
+<option value='>2500'>>2500</option>
+<option value='upto 30000kVA'>upto 300000kVA</option>
+<option value='>30000kVA'>>30000kVA</option>
+<option value='<20'>&lt 20</option>
+    <option value='66'>66</option></select>
+</td>
+</tr>
+    <tr>
+<td id="lab">Bill No</td>
+        <td><input type="number" class="form-control" name='billno' maxlength='30' min="1" max="150000" required></td>
+</tr>
+<tr>
+<td id="lab">Contracted Demand</td>
+<td><input type="number" class="form-control" name='contractdemand' maxlength='30' min="1" max="150000"required></td>
+
+<td id="lab">Bill Period</td>
+<td><input type="date" class="form-control" name='billperiod' maxlength='30' placeholder="YYYY-MM-DD" required></td>
+</tr>
+<tr>
+<td id="lab">Load factor</td>
+<td><input type="number" class="form-control" name='loadfactor' maxlength='30' min="0" max="1" step="0.01"required></td>
+</tr>
+<tr>
+<td></td>
+<td id="lab">kVAh</td>
+<td id="lab">kVA</td>
+</tr>
+<tr>
+<td id="lab">Energy Consumed</td>
+<td><input type="number" class="form-control" name='energyconsumedkvah' maxlength='30' min="1" max="1500000000" required></td>
+<td><input type="number" class="form-control" name='energyconsumedkva' maxlength='30' min="1" max="15000000000"required></td>
+</tr>
+<tr>
+<td id="lab">Energy Consumed on peak hours</td>
+<td><input type="number" class="form-control" name='todkvah' maxlength='30' min="1" max="15000000"></td>
+</tr>
+<tr>
+<td><h2>OR</h2></td>
+</tr>
+<tr>
+<td id="lab">Upload Bill</td>
+<td><input type="file" class="form-control-file"name='upload' value='UPLOAD'></td>
+</tr>
+
+</table>
+</center>
+<br />
+<br>
+<p id="comuid"></p>
+
+
+
+    <center> <a href=""><button type="submit"  id="formbtn" class="btn btn-outline-dark">Save</button></a></center>
+    </form>
+     </div>
+    
+       <script>
+function populate(s1,s2){
+	var s1 = document.getElementById(s1);
+	var s2 = document.getElementById(s2);
+	s2.innerHTML = "";
+	if(s1.value == "Andhra Pradesh"){
+		var optionArray = ["|--Select--","APEPDCL|APEPDCL","APSPDCL|APSPDCL"];
+	} else if(s1.value == "Bihar"){
+		var optionArray = ["|--Select--","NBPDCL|NBPDCL","SBPDCL|SBPDCL"];
+	} else if(s1.value == "Chattisgarh"){
+		var optionArray = ["|--Select--","CSPDCL|CSPDCL"];
+	}
+	else if(s1.value == "Assam"){
+		var optionArray = ["|--Select--","APDCL|APDCL"];}
+	else if(s1.value == "Delhi"){
+		var optionArray = ["|--Select--","BRPL|BRPL","TPDDL|TPDDL"];}
+	else if(s1.value == "Goa"){
+		var optionArray = ["|--Select--","E.DEPT|E.DEPT"];}
+		else if(s1.value == "Gujarat"){
+		var optionArray = ["|--Select--","UGVCL|UGVCL","MGVCL|MGVCL","PGVCL|PGVCL"];}
+		else if(s1.value == "Himachal Pradesh"){
+		var optionArray = ["|--Select--","HPSEBL|HPSEBL"];}
+		else if(s1.value == "Haryana"){
+		var optionArray = ["|--Select--","DHBVN|DHBVN","UHBVN|UHBVN"];}
+		else if(s1.value == "Jammu and Kashmir"){
+		var optionArray = ["|--Select--","PDD|PDD"];}
+		else if(s1.value == "Karnataka"){
+		var optionArray = ["|--Select--","BESCOM|BESCOM","GESCOM|GESCOM","CESCL|CESCL"];}
+		else if(s1.value == "Kerala"){
+		var optionArray = ["|--Select--","KSEBL|KSEBL"];}
+		else if(s1.value == "Madhya Pradesh"){
+		var optionArray = ["|--Select--","MKVVCL|MKVVCL"];}
+		else if(s1.value == "Maharashtra"){
+		var optionArray = ["|--Select--","msedl|MSEDL"];}
+		else if(s1.value == "Meghalaya"){
+		var optionArray = ["|--Select--","MEDCL|MEDCL"];}
+		else if(s1.value == "Mizoram"){
+		var optionArray = ["|--Select--","P&E DEPT|P&E DEPT"];}
+		else if(s1.value == "Orissa"){
+		var optionArray = ["|--Select--","WESCO|WESCO"];}
+		else if(s1.value == "Punjab"){
+		var optionArray = ["|--Select--","PSPCL|PSPCL"];}
+		else if(s1.value == "Rajasthan"){
+		var optionArray = ["|--Select--","JVVNL|JVVNL","JDVVNL|JDVVNL","AVVNL|AVVNL"];}
+		else if(s1.value == "Tripura"){
+		var optionArray = ["|--Select--","TSECL|TSECL"];}
+		else if(s1.value == "Uttar Pradesh"){
+		var optionArray = ["|--Select--","PAVVNL|PAVVNL","PUVVNL|PUVVNL"];}
+		else if(s1.value == "Uttarakhand"){
+		var optionArray = ["|--Select--","UPCL|UPCL"];}
+	for(var option in optionArray){
+		var pair = optionArray[option].split("|");
+		var newOption = document.createElement("option");
+		newOption.value = pair[0];
+		newOption.innerHTML = pair[1];
+		s2.options.add(newOption);
+	}
+}
+           
+</script> 
+        
+    </body></html>
